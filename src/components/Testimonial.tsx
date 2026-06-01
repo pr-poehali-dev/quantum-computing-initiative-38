@@ -6,51 +6,45 @@ export function Testimonial() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
       { threshold: 0.2 },
     )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-32 lg:py-40 px-6 lg:px-12 bg-sage">
+    <section ref={sectionRef} className="py-32 lg:py-40 px-6 lg:px-12 bg-sage relative overflow-hidden">
+      {/* Decorative peonies on this section */}
+      <svg className="absolute left-8 top-8 w-32 opacity-30 pointer-events-none" viewBox="0 0 120 120" fill="none">
+        <circle cx="60" cy="60" r="35" fill="#fff" fillOpacity="0.2"/>
+        <ellipse cx="60" cy="44" rx="18" ry="24" fill="#fff" fillOpacity="0.18" transform="rotate(-10 60 44)"/>
+        <ellipse cx="78" cy="62" rx="17" ry="22" fill="#fff" fillOpacity="0.16" transform="rotate(20 78 62)"/>
+        <ellipse cx="42" cy="64" rx="17" ry="21" fill="#fff" fillOpacity="0.16" transform="rotate(-20 42 64)"/>
+        <ellipse cx="60" cy="75" rx="15" ry="18" fill="#fff" fillOpacity="0.14"/>
+        <circle cx="60" cy="58" r="9" fill="#fff" fillOpacity="0.25"/>
+      </svg>
+      <svg className="absolute right-8 bottom-8 w-32 opacity-30 pointer-events-none" viewBox="0 0 120 120" fill="none">
+        <circle cx="60" cy="60" r="35" fill="#fff" fillOpacity="0.2"/>
+        <ellipse cx="60" cy="44" rx="18" ry="24" fill="#fff" fillOpacity="0.18" transform="rotate(-10 60 44)"/>
+        <ellipse cx="78" cy="62" rx="17" ry="22" fill="#fff" fillOpacity="0.16" transform="rotate(20 78 62)"/>
+        <ellipse cx="42" cy="64" rx="17" ry="21" fill="#fff" fillOpacity="0.16" transform="rotate(-20 42 64)"/>
+        <circle cx="60" cy="58" r="9" fill="#fff" fillOpacity="0.25"/>
+      </svg>
+
       <div className="max-w-5xl mx-auto text-center">
-        {/* Quote Mark */}
-        <div
-          className={`mb-10 transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
-        >
-          <svg className="w-16 h-16 mx-auto text-primary-foreground/30" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-          </svg>
+        <div className={`mb-10 transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}>
+          <p className="font-serif text-6xl text-primary-foreground/30">&</p>
         </div>
 
-        {/* Quote */}
-        <blockquote
-          className={`font-serif text-2xl md:text-3xl lg:text-4xl font-light text-primary-foreground leading-relaxed mb-10 text-balance transition-all duration-1000 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          Работа с Wabi была похожа на медитацию. Они поняли, что наш дом должен поддерживать
-          благополучие семьи, а не просто красиво выглядеть. Результат — пространство, которое наконец ощущается как наше.
+        <blockquote className={`font-serif text-2xl md:text-3xl lg:text-4xl font-light text-primary-foreground leading-relaxed mb-10 text-balance transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          Любовь — это не смотреть друг на друга, это смотреть вместе в одном направлении
         </blockquote>
 
-        {/* Attribution */}
-        <div
-          className={`transition-all duration-1000 delay-400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <p className="text-sm tracking-widest uppercase text-primary-foreground/80">Анна и Михаил Петровы</p>
-          <p className="text-sm text-primary-foreground/60 mt-1">Резиденция в Москве</p>
+        <div className={`transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <p className="text-sm tracking-widest uppercase text-primary-foreground/80">Антуан де Сент-Экзюпери</p>
+          <div className="mt-6 w-px h-10 bg-primary-foreground/20 mx-auto" />
+          <p className="text-sm tracking-widest uppercase text-primary-foreground/60 mt-4">09 · 08 · 2026</p>
         </div>
       </div>
     </section>
