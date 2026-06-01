@@ -12,9 +12,6 @@ export function Header() {
           </a>
 
           <div className="hidden md:flex items-center gap-12">
-            <a href="#details" className="text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-500">
-              Детали
-            </a>
             <a href="#dresscode" className="text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-500">
               Дресс-код
             </a>
@@ -39,7 +36,6 @@ export function Header() {
 
         <div className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${isMenuOpen ? "max-h-64 pb-8" : "max-h-0"}`}>
           <div className="flex flex-col gap-6 pt-4">
-            <a href="#details" onClick={() => setIsMenuOpen(false)} className="text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">Детали</a>
             <a href="#dresscode" onClick={() => setIsMenuOpen(false)} className="text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">Дресс-код</a>
             <a href="#schedule" onClick={() => setIsMenuOpen(false)} className="text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">Программа</a>
             <a href="#rsvp" onClick={() => setIsMenuOpen(false)} className="text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">Анкета</a>

@@ -41,8 +41,7 @@ export function Hero() {
         </p>
 
         <h1 className={`font-serif text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight text-foreground mb-6 text-balance transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          Антон
-          <span className="block text-sage italic"> & Виктория</span>
+          Антон <span className="text-sage">&</span> Виктория
         </h1>
 
         <p className={`text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-4 transition-all duration-1000 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
@@ -73,9 +72,6 @@ export function Hero() {
             <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
-          <a href="#details" className="inline-flex items-center gap-2 px-8 py-4 text-sm tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors duration-500">
-            Подробнее
           </a>
         </div>
       </div>

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react"
 type FormState = {
   name: string
   attending: string
-  guests: string
   allergies: string
   music: string
 }
@@ -14,7 +13,6 @@ export function Contact() {
   const [formState, setFormState] = useState<FormState>({
     name: "",
     attending: "",
-    guests: "",
     allergies: "",
     music: "",
   })
@@ -41,7 +39,7 @@ export function Contact() {
       })
       if (res.ok) {
         setStatus("success")
-        setFormState({ name: "", attending: "", guests: "", allergies: "", music: "" })
+        setFormState({ name: "", attending: "", allergies: "", music: "" })
       } else {
         setStatus("error")
       }
@@ -83,7 +81,7 @@ export function Contact() {
               <span className="italic">присутствие</span>
             </h2>
             <p className={`text-muted-foreground leading-relaxed mb-12 max-w-md transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              Пожалуйста, заполните анкету до <em className="text-foreground">1 августа 2026</em>, чтобы мы успели подготовиться и встретить вас наилучшим образом.
+              Пожалуйста, заполните анкету до <em className="text-foreground">20 июля 2026</em>, чтобы мы успели подготовиться и встретить вас наилучшим образом.
             </p>
 
             {/* Couple info */}
@@ -142,18 +140,6 @@ export function Contact() {
                       </label>
                     ))}
                   </div>
-                </div>
-
-                <div>
-                  <label htmlFor="guests" className={labelClass}>Количество гостей с вами</label>
-                  <input
-                    type="text"
-                    id="guests"
-                    value={formState.guests}
-                    onChange={(e) => setFormState({ ...formState, guests: e.target.value })}
-                    className={inputClass}
-                    placeholder="Например: приду один / с партнёром"
-                  />
                 </div>
 
                 <div>

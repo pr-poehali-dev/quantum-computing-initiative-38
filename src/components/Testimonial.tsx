@@ -33,17 +33,13 @@ export function Testimonial() {
       </svg>
 
       <div className="max-w-5xl mx-auto text-center">
-        <div className={`mb-10 transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}>
-          <p className="font-serif text-6xl text-primary-foreground/30">&</p>
-        </div>
-
-        <blockquote className={`font-serif text-2xl md:text-3xl lg:text-4xl font-light text-primary-foreground leading-relaxed mb-10 text-balance transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          Любовь — это не смотреть друг на друга, это смотреть вместе в одном направлении
+        <blockquote className={`font-serif text-xl md:text-2xl font-light text-primary-foreground leading-relaxed mb-8 text-balance transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          Одно слово освобождает нас от всей тяжести и боли жизни. Это слово — любовь.
         </blockquote>
 
         <div className={`transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <p className="text-sm tracking-widest uppercase text-primary-foreground/80">Антуан де Сент-Экзюпери</p>
-          <div className="mt-6 w-px h-10 bg-primary-foreground/20 mx-auto" />
+          <p className="text-sm tracking-widest uppercase text-primary-foreground/80">Софокл</p>
+          <div className="mt-4 w-px h-8 bg-primary-foreground/20 mx-auto" />
           <p className="text-sm tracking-widest uppercase text-primary-foreground/60 mt-4">09 · 08 · 2026</p>
         </div>
       </div>

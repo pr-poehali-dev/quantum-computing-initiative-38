@@ -58,7 +58,6 @@ export function Footer() {
           <div className="md:col-span-2 md:col-start-7">
             <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Навигация</p>
             <nav className="flex flex-col gap-3">
-              <a href="#details" className="text-sm text-foreground hover:text-sage transition-colors">Детали</a>
               <a href="#dresscode" className="text-sm text-foreground hover:text-sage transition-colors">Дресс-код</a>
               <a href="#schedule" className="text-sm text-foreground hover:text-sage transition-colors">Программа</a>
               <a href="#rsvp" className="text-sm text-foreground hover:text-sage transition-colors">Анкета</a>

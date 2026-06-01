@@ -36,8 +36,8 @@ export function Philosophy() {
           {/* Image */}
           <div className={`relative aspect-[4/5] bg-sand overflow-hidden transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
             <img
-              src="/minimalist-japanese-interior-design-with-natural-w.jpg"
-              alt="Атмосфера нашей свадьбы"
+              src="https://cdn.poehali.dev/projects/d1c2c738-56df-487f-9f74-a1a0c77efa19/bucket/8cb6b574-eafc-4f25-86cc-c722c7d23494.jpg"
+              alt="Антон и Виктория"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#f5d0d0]/60" />
