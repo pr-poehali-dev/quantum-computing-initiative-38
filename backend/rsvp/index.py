@@ -3,10 +3,11 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import psycopg2
 
 
 def handler(event: dict, context) -> dict:
-    """Получает анкету гостя свадьбы и отправляет её на почту молодожёнов."""
+    """Получает анкету гостя свадьбы, сохраняет в БД и отправляет на почту молодожёнов."""
 
     cors_headers = {
         "Access-Control-Allow-Origin": "*",
@@ -21,11 +22,19 @@ def handler(event: dict, context) -> dict:
 
     name = body.get("name", "—")
     attending = body.get("attending", "—")
-    guests = body.get("guests", "—")
     allergies = body.get("allergies", "—")
     music = body.get("music", "—")
 
     attending_text = {"yes": "Да, буду!", "no": "К сожалению, нет", "maybe": "Пока не знаю"}.get(attending, attending)
+
+    schema = os.environ.get("MAIN_DB_SCHEMA", "public")
+    def esc(s): return s.replace("'", "''")
+    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    cur = conn.cursor()
+    cur.execute(f"INSERT INTO {schema}.rsvp_responses (name, attending, allergies, music) VALUES ('{esc(name)}', '{esc(attending)}', '{esc(allergies)}', '{esc(music)}')")
+    conn.commit()
+    cur.close()
+    conn.close()
 
     html = f"""
     <html><body style="font-family: Georgia, serif; color: #2a2018; background: #faf8f5; padding: 32px;">
@@ -38,10 +47,6 @@ def handler(event: dict, context) -> dict:
         <tr style="border-bottom: 1px solid #e8e0d8;">
           <td style="padding: 12px 0; color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 2px;">Придёт?</td>
           <td style="padding: 12px 0; font-size: 16px;">{attending_text}</td>
-        </tr>
-        <tr style="border-bottom: 1px solid #e8e0d8;">
-          <td style="padding: 12px 0; color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 2px;">Гостей с собой</td>
-          <td style="padding: 12px 0; font-size: 16px;">{guests}</td>
         </tr>
         <tr style="border-bottom: 1px solid #e8e0d8;">
           <td style="padding: 12px 0; color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 2px;">Аллергии</td>
