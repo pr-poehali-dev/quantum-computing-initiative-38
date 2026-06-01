@@ -58,14 +58,14 @@ def handler(event: dict, context) -> dict:
 
     msg = MIMEMultipart("alternative")
     msg["Subject"] = f"Анкета гостя: {name}"
-    msg["From"] = "young.to.die04@mail.ru"
-    msg["To"] = "young.to.die04@mail.ru"
+    msg["From"] = "hahahagaygay@yandex.ru"
+    msg["To"] = "hahahagaygay@yandex.ru"
     msg.attach(MIMEText(html, "html", "utf-8"))
 
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
-    with smtplib.SMTP_SSL("smtp.mail.ru", 465) as server:
-        server.login("young.to.die04@mail.ru", smtp_password)
-        server.sendmail("young.to.die04@mail.ru", "young.to.die04@mail.ru", msg.as_string())
+    with smtplib.SMTP_SSL("smtp.yandex.ru", 465) as server:
+        server.login("hahahagaygay@yandex.ru", smtp_password)
+        server.sendmail("hahahagaygay@yandex.ru", "hahahagaygay@yandex.ru", msg.as_string())
 
     return {
         "statusCode": 200,
